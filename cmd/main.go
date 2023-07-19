@@ -10,6 +10,8 @@ type Vertex struct {
 }
 
 // Pointer receivers
+// Go does not have classes, we define methods on types
+// Method is a function with special 'receiver' argument
 func (r *Vertex) DoubleIt() {
 	r.X *= 2
 	r.Y *= 2
