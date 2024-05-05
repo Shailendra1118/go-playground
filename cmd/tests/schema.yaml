@@ -1,0 +1,6 @@
+kind: GoodWillDeployment
+apiVersion: v1beta1
+SWCI: AT1111
+artifact:
+  name: application-1
+  version: v1.0
