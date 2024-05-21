@@ -3,6 +3,7 @@ package snippets
 import (
 	"fmt"
 	"testing"
+	"math"
 )
 
 func TestSlices(t *testing.T) {
@@ -88,4 +89,68 @@ func TestSlices(t *testing.T) {
 		cur = cur.next
 	}
 	fmt.Println("nil")
+ }
+
+ func TestCompareBin(t *testing.T) {
+	str1 := "0011"
+	str2 := "1100"
+	length := math.Max(float64(len(str1)), float64(len(str2)))
+	var res[] string
+	for i :=0; i<int(length); i++ {
+		if str1[len(str1)-1] == '1' || str2[len(str2)-1] == '1' {
+			res = append(res, "1") // '1'
+		} else {
+			res = append(res, "0")
+		}
+
+		//str1 = str1 >> 1
+		//str2 = str2 >> 1
+	}
+
+	fmt.Printf("Res is %v\n", res)
+
+ }
+
+ func TestMapContains(t *testing.T) {
+	m := make(map[string]string)
+	m["one"] = "1"
+	fmt.Printf("Map: %v\n", m["one"])
+
+
+	// declare and initialize new map in same line like below
+	anotherMap := map[string]int32{"Shailendra": 100, "Singh": 500}
+	fmt.Printf("Another: %v\n", anotherMap["Shailendra"])
+
+	delete(anotherMap, "Singh")
+	fmt.Printf("Another: %v\n", anotherMap["Singh"]) //return 0
+
+	val, ok := anotherMap["Shailendra"] //case sensitive
+	fmt.Printf("Value: %v and Ok: %v\n", val, ok)
+ }
+
+ func TestDetectCycle(t *testing.T) {
+	var head *Node
+	visited := make(map[*Node]bool)
+
+	first := newNode(1, nil)
+	sec := newNode(2, nil)
+	th := newNode(3, nil)
+	//four := newNode(4, nil)
+
+	//first := newNode(1, newNode(2, newNode(2, newNode(4, nil))))
+	first.next = sec
+	sec.next = th
+	th.next = first
+	head = first
+
+	
+	for n:= head; n != nil; n = n.next {
+		if visited[n] {
+			fmt.Print("There is a cycle in LL")
+			break
+		}
+		visited[n] = true
+		fmt.Printf("Visted: %v\n", n.data)
+	}
+
  }
