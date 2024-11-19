@@ -1,8 +1,9 @@
-package main
+package snippets
 
 import (
 	"fmt"
 	depsinj "go-playground/deps_inj"
+
 	"github.com/xanzy/go-gitlab"
 )
 
@@ -88,7 +89,7 @@ func testGitLabReleaseService() {
 	}
 
 	fmt.Println("Got response from release service", project.Name)
-	
+
 }
 
 func testGitLab() {

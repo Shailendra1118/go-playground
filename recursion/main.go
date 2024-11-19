@@ -25,3 +25,7 @@ func findAllPaths(row, col int) int {
 
 	//return 100
 }
+
+func init() {
+	fmt.Println("setting up some state...")
+}
